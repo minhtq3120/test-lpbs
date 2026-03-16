@@ -1,0 +1,1 @@
+export const MAX_LOAN = "1000000000000"; 
