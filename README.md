@@ -1,13 +1,13 @@
 # Loan Calculator
 
-Ứng dụng web đơn giản giúp người dùng **tính toán khoản vay** dựa trên:
+Ứng dụng web đơn giản giúp người dùng **tính toán khoản vay** dựa trên dư nợ gốc giảm dần:
 
-- Số tiền vay
-- Lãi suất vay
-- Thời hạn vay
+Người dùng nhập các trường trong Form
+- Số tiền vay (VNĐ)
+- Lãi suất vay (% / năm)
+- Thời hạn vay (tháng)
 
-Hệ thống sẽ tính toán và hiển thị**bảng lịch trả nợ theo tháng**, bao gồm:
-
+Hệ thống sẽ tính toán và hiển thị **bảng số tiền cần trả theo tháng**, bao gồm:
 - Tiền gốc phải trả
 - Tiền lãi phải trả
 - Tổng tiền thanh toán
