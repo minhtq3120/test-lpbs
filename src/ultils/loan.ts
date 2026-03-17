@@ -37,7 +37,7 @@ export function calculateLoan(
             principal: monthlyPrincipal.toNumber(),
             interest: interest.toNumber(),
             payment: payment.toNumber(),
-            remaining: remaining.isLessThan(0) ? 0 : remaining.toNumber()
+            remaining: remaining.toNumber()
         })
     }
 

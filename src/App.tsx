@@ -11,11 +11,11 @@ function App() {
     <div className="min-h-screen flex items-start justify-center p-8">
       <div className="w-full max-w-6xl space-y-6">
         <div className="grid grid-cols-12 gap-6">
-          <div className="xl:col-span-8 col-span-12">
+          <div className="xl:col-span-7 col-span-12">
             <LoanForm setCal={setCal} />
           </div>
 
-          <div className="xl:col-span-4 col-span-12">
+          <div className="xl:col-span-5 col-span-12">
             <LoanResult cal={cal} />
           </div>
         </div>

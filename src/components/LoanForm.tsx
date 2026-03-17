@@ -21,13 +21,26 @@ const LoanFormSchema = z.object({
       return new BigNumber(val).lte(MAX_LOAN);
     }, "Số tiền vay tối đa là 1000 tỷ VND"),
 
-  rate: z.coerce.number().min(0.01, "Lãi suất phải lớn hơn 0%"),
+  rate: z.coerce.number().min(0.01, "Vui lòng nhập lãi suất lớn hơn 0%"),
   term: z.coerce
     .number()
     .int("Kỳ hạn phải là số nguyên")
-    .min(1, "Kỳ hạn tối thiểu 1 tháng")
+    .min(1, "Vui lòng nhập kỳ hạn tối thiểu 1 tháng")
     .max(35, "Kỳ hạn vay tối đa là 35 tháng"),
 });
+
+const customeThemeInput = {
+  "& .MuiInputBase-input": {
+    color: "var(--text-rs)",
+    fontWeight: "bold",
+  },
+  "& .MuiInputLabel-root.Mui-focused": {
+    color: "var(--text-rs)",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "var(--text-rs)",
+  },
+};
 
 const LoanForm = ({
   setCal,
@@ -54,7 +67,7 @@ const LoanForm = ({
   };
 
   return (
-    <Card className="p-6 shadow-md  ">
+    <Card className="p-6 shadow-lg">
       <Typography
         variant="h6"
         className="!mb-4 !font-bold text-[var(--text-rs)] !text-[16px]"
@@ -84,6 +97,7 @@ const LoanForm = ({
               helperText={errors?.amount?.message}
               fullWidth
               variant="standard"
+              sx={{ ...customeThemeInput }}
             />
           )}
         />
@@ -104,6 +118,7 @@ const LoanForm = ({
               inputProps={{
                 step: 0.01,
               }}
+              sx={{ ...customeThemeInput }}
             />
           )}
         />
@@ -120,6 +135,7 @@ const LoanForm = ({
               helperText={errors.term?.message}
               fullWidth
               variant="standard"
+              sx={{ ...customeThemeInput }}
             />
           )}
         />

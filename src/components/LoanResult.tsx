@@ -12,6 +12,13 @@ const LoanResult = ({ cal }: { cal: CaculateLoanResponse | null }) => {
       >
         Kết quả
       </Typography>
+      <Typography variant="caption" gutterBottom className="!text-left">
+        Công thức tính:
+        <br />
+        Tiền gốc hàng tháng = Số tiền vay / số tháng vay
+        <br />
+        Tiền lãi các tháng = tiền gốc còn lại x Lãi suất vay
+      </Typography>
       <div className="flex flex-col justify-start mt-6 gap-6">
         <div className="flex justify-start flex-col items-start">
           <Typography align="left">Tổng tiền lãi phải trả:</Typography>

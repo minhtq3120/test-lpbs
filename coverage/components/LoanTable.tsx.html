@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -136,7 +136,21 @@
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
 <a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,7 +167,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -176,7 +190,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,7 +256,7 @@ export default function LoanTable({
 }) {
   return (
     &lt;Card className="shadow-md"&gt;
-      &lt;TableContainer sx={{ overflowX: "auto" }}&gt;
+      &lt;TableContainer sx={{ overflowX: "auto", borderRadius: "10px" }}&gt;
         &lt;Table
           sx={{
             "&amp; th, &amp; td": {
@@ -236,7 +264,16 @@ export default function LoanTable({
             },
           }}
         &gt;
-          &lt;TableHead&gt;
+          &lt;TableHead
+            sx={{
+              backgroundColor: "#6e361a",
+              "&amp; th": {
+                fontWeight: "bold",
+                color: "white",
+                minWidth: 200,
+              },
+            }}
+          &gt;
             &lt;TableRow&gt;
               &lt;TableCell&gt;Tháng&lt;/TableCell&gt;
               &lt;TableCell&gt;Tiền gốc mỗi kỳ (VND)&lt;/TableCell&gt;
@@ -248,8 +285,13 @@ export default function LoanTable({
 &nbsp;
           &lt;TableBody&gt;
             {cal?.result &amp;&amp;
-              cal.result.map((row) =&gt; (
-                &lt;TableRow key={row.month}&gt;
+              cal.result.map((row, index) =&gt; (
+                &lt;TableRow
+                  key={row.month}
+                  sx={{
+                    backgroundColor: index % 2 == 0 ? "#fff" : "#e5e4e7",
+                  }}
+                &gt;
                   &lt;TableCell&gt;{row.month}&lt;/TableCell&gt;
                   &lt;TableCell&gt;{formatMoney(row.principal)}&lt;/TableCell&gt;
                   &lt;TableCell&gt;{formatMoney(row.remaining)}&lt;/TableCell&gt;
@@ -267,12 +309,12 @@ export default function LoanTable({
               &lt;/TableCell&gt;
               &lt;TableCell&gt;
                 &lt;span className="text-[var(--text-rs)] font-bold"&gt;
-                  {cal ? formatMoney(cal.totalInterestPay) : <span class="branch-1 cbranch-no" title="branch not covered" >0} </span>VND
+                  {cal ? formatMoney(cal.totalInterestPay) : 0} VND
                 &lt;/span&gt;
               &lt;/TableCell&gt;
               &lt;TableCell&gt;
                 &lt;span className="text-[var(--text-rs)] font-bold"&gt;
-                  {cal ? formatMoney(cal.totalPay) : <span class="branch-1 cbranch-no" title="branch not covered" >0} </span>VND
+                  {cal ? formatMoney(cal.totalPay) : 0} VND
                 &lt;/span&gt;
               &lt;/TableCell&gt;
             &lt;/TableRow&gt;
@@ -289,7 +331,7 @@ export default function LoanTable({
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-03-16T19:51:22.796Z
+                at 2026-03-17T03:33:46.349Z
             </div>
         <script src="../prettify.js"></script>
         <script>

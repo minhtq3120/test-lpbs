@@ -17,7 +17,7 @@ export default function LoanTable({
 }) {
   return (
     <Card className="shadow-md">
-      <TableContainer sx={{ overflowX: "auto" }}>
+      <TableContainer sx={{ overflowX: "auto", borderRadius: "10px" }}>
         <Table
           sx={{
             "& th, & td": {
@@ -25,7 +25,16 @@ export default function LoanTable({
             },
           }}
         >
-          <TableHead>
+          <TableHead
+            sx={{
+              backgroundColor: "#6e361a",
+              "& th": {
+                fontWeight: "bold",
+                color: "white",
+                minWidth: 200,
+              },
+            }}
+          >
             <TableRow>
               <TableCell>Tháng</TableCell>
               <TableCell>Tiền gốc mỗi kỳ (VND)</TableCell>
@@ -37,8 +46,13 @@ export default function LoanTable({
 
           <TableBody>
             {cal?.result &&
-              cal.result.map((row) => (
-                <TableRow key={row.month}>
+              cal.result.map((row, index) => (
+                <TableRow
+                  key={row.month}
+                  sx={{
+                    backgroundColor: index % 2 == 0 ? "#fff" : "#e5e4e7",
+                  }}
+                >
                   <TableCell>{row.month}</TableCell>
                   <TableCell>{formatMoney(row.principal)}</TableCell>
                   <TableCell>{formatMoney(row.remaining)}</TableCell>
