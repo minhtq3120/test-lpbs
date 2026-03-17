@@ -55,6 +55,6 @@ yarn test:coverage
 
 
 # Demo
-[https://test-lpbs-vercel.vercel.app/](https://test-lpbs-vercel.vercel.app/)
+[https://test-lpbs.vercel.app/](https://test-lpbs.vercel.app/)
 
 ![Demo](./public/demo.png)
